@@ -21,9 +21,7 @@ MovieAPI is a back-end API built with Node.js and GraphQL that fetches data from
 2. Install the dependencies: `npm install`.
 3. Create a `.env` file and configure the following information:
 
-PORT=3000
-TMDB_API_KEY=<your TMDb API key>
-SECRET_KEY=<a secret key for generating JWT tokens>
+PORT, TMDB_API_KEY, SECRET_KEY 
 
 4. Start the application: `npm start`.
 5. Access to the API through `http://localhost:3000/api/v1/movies/`.
