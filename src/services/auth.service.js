@@ -5,8 +5,8 @@ dotenv.config();
 
 const { SECRET_KEY } = process.env;
 
-function generateToken(userId) {
-  const token = jwt.sign({ userId }, SECRET_KEY, { expiresIn: '1h' });
+function generateToken(userDB) {
+  const token = jwt.sign(userDB, SECRET_KEY, { expiresIn: '2h' });
   return token;
 }
 
@@ -20,9 +20,11 @@ function authenticateUser(req, res, next) {
 
     const token = authorizationHeader.replace('Bearer ', '');
 
-    const { userId } = jwt.verify(token, SECRET_KEY);
+    const { id, email, username } = jwt.verify(token, SECRET_KEY);
 
-    if (!userId) {
+    req.body.user = { id, email, username };
+
+    if (!id) {
       return res.status(401).send('Invalid Token');
     }
 

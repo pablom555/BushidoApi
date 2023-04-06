@@ -16,6 +16,7 @@ const moviesSchema = buildSchema(`
     overview: String
     popularity: Float
     poster_path: String
+    backdrop_path: String
     actors: [Actor]
   }  
 

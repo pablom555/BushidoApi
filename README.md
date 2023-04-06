@@ -83,7 +83,7 @@ In body you must send the following data
 
 ```json
 {
-  username: 'testUser',
+  email: 'testUser@bushido.com',
   password: 'testPassword',
 }
 ```

@@ -5,9 +5,9 @@ const { users } = require('../utils/user.mock');
 
 async function loginController(req, res) {
   try {
-    const { username, password } = req.body;
+    const { email, password } = req.body;
 
-    const userDB = users.find((user) => user.username === username);
+    const userDB = users.find((user) => user.email === email);
 
     if (!userDB) {
       return res.status(401).send('Invalid username or password');
@@ -19,7 +19,7 @@ async function loginController(req, res) {
       return res.status(401).send('Invalid username or password');
     }
 
-    const token = generateToken(userDB.id);
+    const token = generateToken(userDB);
 
     return res.json({ token });
   } catch (error) {
